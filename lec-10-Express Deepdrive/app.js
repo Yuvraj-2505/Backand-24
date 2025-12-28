@@ -1,6 +1,6 @@
 // External Module
 const express = require('express');
-
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -37,7 +37,14 @@ app.get("/contact-us", (req, res, next) => {
 });
 
 app.post("/contact-us", (req, res, next) => {
-  console.log("Handling /contact-us for POST", req.url, req.method);
+  console.log("First handling", req.url, req.method, req.body);
+  next();
+})
+
+app.use(bodyParser.urlencoded());
+
+app.post("/contact-us", (req, res, next) => {
+  console.log("Handling /contact-us for POST", req.url, req.method, req.body);
   res.send(`<h1>We will contact you shortly</h1>`);
 })
 
@@ -45,4 +52,3 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on address http://localhost:${PORT}`);
 });
-
