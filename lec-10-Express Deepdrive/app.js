@@ -41,7 +41,7 @@ app.post("/contact-us", (req, res, next) => {
   next();
 })
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.post("/contact-us", (req, res, next) => {
   console.log("Handling /contact-us for POST", req.url, req.method, req.body);
