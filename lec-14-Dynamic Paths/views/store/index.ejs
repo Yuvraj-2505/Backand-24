@@ -1,15 +1,15 @@
-<!-- <%- include('../partials/head') %>
+<%- include('../partials/head') %>
   </head>
   <body>
     <%- include('../partials/nav') %>
     <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-6xl">
       <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
-        Here are our registered homes:
+        Welcome to airbnb index page:
       </h2>
       <div class="flex flex-wrap justify-center gap-6">
         <% registeredHomes.forEach(home => { %>
           <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 w-full max-w-sm">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8zyRSdwqAfMR2Oi1C2RCtpXjUXQfxMuIzQg&s" alt="<%= home.houseName %>" class="w-full h-48 object-cover">
+            <img src="<%= home.photoUrl %>" alt="<%= home.houseName %>" class="w-full h-48 object-cover">
             <div class="p-4">
               <h3 class="text-xl font-semibold text-gray-800 mb-2"><%= home.houseName %></h3>
               <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt mr-2"></i><%= home.location %></p>
@@ -29,26 +29,4 @@
       </div>
     </main>
   </body>
-</html> -->
-
-
-<% registeredHomes.forEach(home => { %>
-  <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg w-full max-w-sm">
-    <img src="<%= home.photoUrl %>" alt="<%= home.houseName %>" class="w-full h-48 object-cover">
-    <div class="p-4">
-      <h3 class="text-xl font-semibold text-gray-800 mb-2"><%= home.houseName %></h3>
-      <p class="text-gray-600 mb-2"><%= home.location %></p>
-      <span class="text-lg font-bold text-red-500">Rs<%= home.price %> / night</span>
-      <div class="flex items-center mt-2">
-        <span class="mr-2">⭐ <%= home.rating %></span>
-        <!-- Book button -->
-        <form action="/bookings" method="POST">
-          <input type="hidden" name="houseName" value="<%= home.houseName %>">
-          <button type="submit" class="bg-green-300 hover:bg-green-400 px-4 py-2 rounded ml-auto">
-            Book
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-<% }) %>
+</html>
