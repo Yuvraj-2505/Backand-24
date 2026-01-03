@@ -47,7 +47,6 @@ app.post("/contact-us", (req, res, next) => {
   console.log("Handling /contact-us for POST", req.url, req.method, req.body);
   res.send(`<h1>We will contact you shortly</h1>`);
 })
-
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on address http://localhost:${PORT}`);
